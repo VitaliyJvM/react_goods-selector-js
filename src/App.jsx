@@ -18,6 +18,7 @@ export const goods = [
 
 export const App = () => {
   const [selectedGood, setSelectedGood] = useState('Jam');
+  const handleClearSelection = () => setSelectedGood('');
 
   return (
     <main className="section container">
@@ -32,14 +33,14 @@ export const App = () => {
             data-cy="ClearButton"
             type="button"
             className="delete ml-3"
-            onClick={() => setSelectedGood('')}
+            onClick={handleClearSelection}
           />
         </h1>
       )}
 
       <table className="table">
         <tbody>
-          {goods?.map(good => (
+          {goods.map(good => (
             <tr
               data-cy="Good"
               className={cn({
@@ -53,7 +54,7 @@ export const App = () => {
                     data-cy="RemoveButton"
                     type="button"
                     className="button is-info"
-                    onClick={() => setSelectedGood('')}
+                    onClick={handleClearSelection}
                   >
                     -
                   </button>
